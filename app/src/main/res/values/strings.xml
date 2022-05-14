@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Fragment</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="next">Next</string>
+    <string name="message_t">Введите текст</string>
+    <string name="text">text</string>
+    <string name="next_second">Next</string>
+    <string name="next_first">Next</string>
+    <string name="next_one">Next</string>
+</resources>
