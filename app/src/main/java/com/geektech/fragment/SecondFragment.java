@@ -31,7 +31,7 @@ public class SecondFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        textView = view.findViewById(R.id.text_second);
+        textView = view.findViewById(R.id.tV_second);
         if (getArguments()!=null) {
             String val = getArguments().getString(KEY);
             textView.setText(String.valueOf(val));
