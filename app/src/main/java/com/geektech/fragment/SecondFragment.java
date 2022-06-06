@@ -20,7 +20,6 @@ public class SecondFragment extends Fragment {
    private String KEY;
     private Button click;
     private TextView textView;
-    private String string;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
