@@ -31,23 +31,20 @@ public class FirstFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         button = view.findViewById(R.id.btn_main);
-        if (getArguments()!=null) {
-            String val = getArguments().getString(KEY);
-            editText.setText(String.valueOf(val));
-        }
         editText = view.findViewById(R.id.text_main);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Bundle bundle = new Bundle();
-                bundle.putString(KEY, editText.getText().toString());
-                SecondFragment fragment = new SecondFragment();
-                fragment.setArguments(bundle);
-                requireActivity().getSupportFragmentManager().beginTransaction().replace
-                        (R.id.container, fragment).addToBackStack(null).commit();
+                if (editText.getText().toString().isEmpty()) {
+                    Toast.makeText(requireActivity(), "ERROR! Enter your data", Toast.LENGTH_SHORT).show();
+                } else {
+                    Bundle bundle = new Bundle();
+                    bundle.putString(KEY, editText.getText().toString());
+                    SecondFragment fragment = new SecondFragment();
+                    fragment.setArguments(bundle);
+                    requireActivity().getSupportFragmentManager().beginTransaction().add(R.id.container, fragment).commit();
+                }
             }
         });
-        Toast toast = Toast.makeText(getActivity(),"Заполните поля", Toast.LENGTH_LONG);
-        toast.show();
     }
 }

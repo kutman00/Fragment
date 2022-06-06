@@ -39,27 +39,11 @@ public class ThirdFragment extends Fragment {
                 bundle.putString(KEY, text.getText().toString());
                 FourthFragment fragment = new FourthFragment();
                 fragment.setArguments(bundle);
-                requireActivity().getSupportFragmentManager().beginTransaction().replace
-                        (R.id.container, fragment).addToBackStack(null).commit();
-                text.setText(String.valueOf(string));
+                requireActivity().getSupportFragmentManager().beginTransaction().add
+                        (R.id.container, fragment).commit();
 
 
             }
         });
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-    }
-
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
     }
 }

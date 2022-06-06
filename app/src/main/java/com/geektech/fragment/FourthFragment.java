@@ -29,8 +29,6 @@ public class FourthFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         text = view.findViewById(R.id.text_fourth);
-
-
         String val = getArguments().getString(KEY);
         text.setText(String.valueOf(val));
         btn_click = view.findViewById(R.id.btn_forth);
@@ -42,24 +40,9 @@ public class FourthFragment extends Fragment {
                 bundle.putString(KEY, text.getText().toString());
                 FifthFragment fragment = new FifthFragment();
                 fragment.setArguments(bundle);
-                requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).addToBackStack(null).commit();
+                requireActivity().getSupportFragmentManager().beginTransaction().add(R.id.container, fragment).commit();
 
             }
         });
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-    }
-
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
     }
 }

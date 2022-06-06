@@ -32,10 +32,8 @@ public class SecondFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         textView = view.findViewById(R.id.tV_second);
-        if (getArguments()!=null) {
             String val = getArguments().getString(KEY);
             textView.setText(String.valueOf(val));
-        }
         click = view.findViewById(R.id.btn_second);
 
         click.setOnClickListener(new View.OnClickListener() {
@@ -45,24 +43,8 @@ public class SecondFragment extends Fragment {
                 bundle.putString(KEY, textView.getText().toString());
                 ThirdFragment fragment = new ThirdFragment();
                 fragment.setArguments(bundle);
-                requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).addToBackStack(null).commit();
-                textView.setText(String.valueOf(string));
+                requireActivity().getSupportFragmentManager().beginTransaction().add(R.id.container, fragment).commit();
             }
         });
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-    }
-
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
     }
 }
